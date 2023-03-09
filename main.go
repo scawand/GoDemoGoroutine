@@ -3,11 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
-	"github.com/scawand/Go/E14_TP2/module"
+	"github.com/scawand/Go/GoDemoGoroutine/module"
 )
 
 func main() {
@@ -26,14 +26,13 @@ func main() {
 	LesJoueurs[3].Nom = "Jane Doe jr"
 	LesJoueurs[3].SesDe[0].ID, LesJoueurs[3].SesDe[0].NbFace = 2, 20
 
-	//fmt.Println(LesJoueurs)
 	start := time.Now()
 	for cle := range LesJoueurs {
 		fmt.Println("\n\n" + LesJoueurs[cle].Nom + " lance les dés")
 		for i := 0; i < 10; i++ {
 			result := LesJoueurs[cle].LancerDe(LesJoueurs[cle].SesDe[0].NbFace) + 1
 			fmt.Printf("%d ", result)
-			//time.Sleep(1 * time.Second)
+			//time.Sleep(1 * time.Second) //remove comments for more "real" random
 		}
 	}
 	elapsed := time.Since(start)
@@ -62,7 +61,7 @@ func main() {
 		if res.Body != nil {
 			defer res.Body.Close()
 		}
-		body, readErr := ioutil.ReadAll(res.Body)
+		body, readErr := io.ReadAll(res.Body)
 		if readErr != nil {
 			println(readErr)
 		}
@@ -115,7 +114,7 @@ func GetAPI(api string, ch chan string) {
 		defer res.Body.Close()
 	}
 
-	body, readErr := ioutil.ReadAll(res.Body)
+	body, readErr := io.ReadAll(res.Body)
 	if readErr != nil {
 		println(readErr)
 	}
