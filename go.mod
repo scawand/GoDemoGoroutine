@@ -1,3 +1,3 @@
-module github.com/scawand/Go/E14_TP2
+module github.com/scawand/Go/GoDemoGoroutine
 
 go 1.19
