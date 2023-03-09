@@ -13,17 +13,17 @@ import (
 func main() {
 	var LesJoueurs [4]module.Joueur
 
-	LesJoueurs[0].Nom = "Bruno"
+	LesJoueurs[0].Nom = "John Doe"
 	LesJoueurs[0].SesDe[0].ID = 0
 	LesJoueurs[0].SesDe[0].NbFace = 20
 
-	LesJoueurs[1].Nom = "John Doe"
+	LesJoueurs[1].Nom = "John Doe jr"
 	LesJoueurs[1].SesDe[0].ID, LesJoueurs[1].SesDe[0].NbFace = 1, 20
 
 	LesJoueurs[2].Nom = "Jane Doe"
 	LesJoueurs[2].SesDe[0].ID, LesJoueurs[2].SesDe[0].NbFace = 2, 20
 
-	LesJoueurs[3].Nom = "Jocelyn"
+	LesJoueurs[3].Nom = "Jane Doe jr"
 	LesJoueurs[3].SesDe[0].ID, LesJoueurs[3].SesDe[0].NbFace = 2, 20
 
 	//fmt.Println(LesJoueurs)
